@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import MovieCard from "./MovieCard";
 
 export default class MovieList extends Component {
   constructor(props) {
@@ -36,10 +37,10 @@ function MovieDetails({ movie }) {
   const { title, director, metascore, stars } = movie;
   return (
     <div className="movie-card">
-      <Link to={`/movies/${movie.id}`}>
-        <h2>{title}</h2>
+      <Link to={`/movies/${movie.id}`} style={{ textDecoration: "none" }}>
+        <h2 className="title">{title}</h2>
         <div className="movie-director">
-          Director: <em>{director}</em>
+          <strong>Director:</strong> <em>{director}</em>
         </div>
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
@@ -54,4 +55,6 @@ function MovieDetails({ movie }) {
       </Link>
     </div>
   );
+
+  // <MovieCard movie={this.state.movie} />;
 }
